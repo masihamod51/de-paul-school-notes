@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Paul School Bilari | Student Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="school-badge">DP</div>
+    <div>
+      <h1>De Paul School Bilari</h1>
+      <p>Student Notes Portal</p>
+    </div>
+    <button id="adminBtn" class="secondary">Teacher Login</button>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>📚 Class Notes</h2>
+      <p>Open notes easily on a mobile, computer or classroom smartboard.</p>
+      <input id="search" type="search" placeholder="Search notes, chapters or subjects…">
+    </section>
+
+    <section id="notesGrid" class="grid"></section>
+    <p id="empty" class="empty">No notes uploaded yet.</p>
+
+    <section id="adminPanel" class="admin hidden">
+      <div class="admin-head">
+        <h2>Teacher Upload</h2>
+        <button id="logoutBtn" class="secondary">Log out</button>
+      </div>
+      <p class="hint">Upload PDF notes and choose the class and subject. Students will see them automatically after the site is connected to Firebase.</p>
+
+      <form id="uploadForm">
+        <label>Class
+          <select id="className" required>
+            <option value="">Select class</option>
+            <option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option>
+          </select>
+        </label>
+        <label>Subject
+          <input id="subject" required placeholder="e.g. Economics">
+        </label>
+        <label>Chapter / Note title
+          <input id="title" required placeholder="e.g. Money and Credit">
+        </label>
+        <label>PDF file
+          <input id="file" type="file" accept="application/pdf" required>
+        </label>
+        <button class="primary" type="submit">⬆ Upload Note</button>
+      </form>
+      <p id="uploadStatus"></p>
+    </section>
+  </main>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="close">×</button>
+      <h2>Teacher Login</h2>
+      <p>Use the teacher account created in Firebase Authentication.</p>
+      <input id="email" type="email" placeholder="Teacher email">
+      <input id="password" type="password" placeholder="Password">
+      <button id="loginBtn" class="primary">Login</button>
+      <p id="loginStatus"></p>
+    </div>
+  </div>
+
+  <footer>© De Paul School Bilari • Student Notes Portal</footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
